@@ -1,0 +1,42 @@
+<html>
+<head><title>Leaflet.js Essentials</title>
+ 
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<style>
+    html, body, #map,ul
+ {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
+ul
+{
+    list-style-type: none;
+}
+
+  </style>
+</head>
+<body>
+
+
+<div id="map"></div>
+
+<script>
+
+	
+
+
+	var map = L.map('map', {
+		center: [35.10418, -106.62987],
+		zoom: 9
+	});
+
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+
+L.marker([35.10418, -106.62987]).addto('map').bindPopup("<h3>Paul Crickard</h3><ul><li><bold>Email:</bold> paulcrickard@gmail.com</li><li><bold>Twitter:</bold> @pcrickard@gmail.com</li><li><bold>Blog:</bold> paulcrickard.wordpress.com</li></ul>").openPopup();
+	
+
+
+</script>
+</body>
+</html>
