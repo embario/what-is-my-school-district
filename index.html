@@ -1,50 +1,54 @@
-<!DOCTYPE html><html><head><title>Big</title>
-<meta charset='utf-8'>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<html><head><title>Paul Crickard</title>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.5/esri-leaflet.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
 
-<link href='big.css' rel='stylesheet' type='text/css' />
+
+
+<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet-renderers/v0.0.1-beta.2/esri-leaflet-renderers.js"></script>
 <style>
-  .new-shiny { background: #aaaaaa; }
+
+html, body,  #map {
+        width : 100%;
+        height : 100%;
+     		   }
+
 </style>
-
-<script src='big.js'></script>
-</head><body>
-
+</head>
+<body>
 
 
-
-<div><em>JavaScript for Geospatial Development</em><br><a href="http://nmgic.com">NMGIC Spring 2015</a><br>Paul Crickard</div>
-
-<div>Big</div>
-
-<div>as <em>big</em> as it can be</div>
-
-<div data-time-to-next="3">and now it's perfect for ignite talks (wait 3 seconds)</div>
-
-<div>no config</div>
-
-<div><em>1.5k</em></div>
-
-<div data-bodyclass="new-shiny">per slide body classes</div>
-
-<div>JS+CSS <a href='https://github.com/tmcw/big'>github.com/ tmcw/ big</a></div>
+<div id="map">
+</div><script>
 
 
 
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '4e36eb1ef5a1f53d6f000001');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
+var map = L.map('map', {center: [35.10418, -106.62987],	zoom:14});
+
+//L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+
+var result;
+L.marker([35.10418, -106.62987]).bindPopup("<h3>Paul Crickard</h3><p><img src='me.jpg' height='80' width='80' align='left'>Author of Leaflet.js Essentials. Programmer Analyst in Albuquerque, NM. Interested in GIS, BIM, and technology applied to the urban environment.</p><ul><li><a href='https://twitter.com/pcrickard'>@pcrickard</a></li><li><a href='http://paulcrickard.wordpress.com'>Blog</a></li><li>paulcrickard at gmail</li></ul>").addTo(map).openPopup();
+
+
+var image = "http://coagisweb.cabq.gov/arcgis/rest/services/Imagery/Aerials2014/ImageServer";
+
+var base = L.esri.imageMapLayer(image, {
+  opacity : 1
+}).addTo(map);
+
+base.bringToBack();
+
+
+
+
+
+map.on("click",function(){
+
+alert("Stop clicking me");
+
+});
+
+
 </script>
-
-
-</body>
-</html>
+</body></html>
