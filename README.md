@@ -1,4 +1,4 @@
-paulcrickard.github.io
+Paul Crickard
 ======================
 ![Image](https://paulcrickard.files.wordpress.com/2010/06/paul.jpg?raw=true)
 Paul Crickard III (@pcrickard) is the author of Leaflet.js Essentials, a Programmer Analyst and former educational facility planner in Albuquerque, New Mexico. 
