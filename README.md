@@ -1,6 +1,6 @@
 paulcrickard.github.io
 ======================
-![Image](../me.jpg?raw=true)
+![Image](https://paulcrickard.files.wordpress.com/2010/06/paul.jpg?raw=true)
 Paul Crickard III (@pcrickard) is the author of Leaflet.js Essentials, a Programmer Analyst and former educational facility planner in Albuquerque, New Mexico. 
 He is one of the first planners to adopt Revit and Building Information Modeling (BIM) in the preparation of master plans for the state. Currently, he has been working on the integration of Revit and BIM in Geographic Information Systems (GIS) .
 
