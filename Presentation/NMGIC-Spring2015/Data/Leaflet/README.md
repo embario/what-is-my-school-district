@@ -6,3 +6,10 @@ Leaflet Examples
 * list item
 * list item
 * list item
+
+```js
+var x = document.GetElementById("something");
+map.on("click",function(){
+	alert(something);
+});
+```
