@@ -31,13 +31,19 @@ html, body,  #map {
 var map = L.map('map', {center: [35.10418, -106.62987],	zoom:8});
 
 L.esri.basemapLayer("Gray").addTo(map);
+
+
 var image = "http://coagisweb.cabq.gov/arcgis/rest/services/Imagery/Aerials2014/ImageServer";
 
+
+/*
 var base = L.esri.imageMapLayer(image, {
   opacity : 1
 }).addTo(map);
 
 base.bringToBack();
+
+
 
 film="http://coagisweb.cabq.gov/arcgis/rest/services/public/SolidWaste/MapServer";
 //film="http://coagisweb.cabq.gov/arcgis/rest/services/public/Schools/MapServer";
@@ -54,6 +60,13 @@ k.bindPopup(function(err, featureCollection){
 
 
 k.bringToFront();
+*/
+
+
+
+ L.esri.featureLayer('http://dmdview02/arcgis/rest/services/TestEdit/FeatureServer/1').addTo(map);
+
+
 
 </script>
 </body></html>
