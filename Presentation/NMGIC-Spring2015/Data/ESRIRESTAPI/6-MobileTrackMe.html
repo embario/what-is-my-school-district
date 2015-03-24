@@ -1,0 +1,79 @@
+<html><head><title>Leaflet.js</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<script src="ABQHistoricPlace.js"></script>
+
+
+<style>
+
+html, body,  #map {
+        width : 100%;
+        height : 100%;
+     		   }
+
+</style>
+
+</head>
+<body>
+
+
+<div id="map"></div>
+
+<script>
+
+
+
+var map = L.map('map', {center: [35.10418, -106.62987],	zoom:8});
+
+var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+
+t.addTo(map);
+
+//var m = L.marker([35,-106]).addTo(map);
+
+//var m2=L.marker([35.10418, -106.62987],{draggable:true}).addTo(map).bindPopup("<h3>NMGIC</h3>").openPopup();
+
+
+//var pl = L.polyline([ [35.05698,-106.72806],[35.06035,-106.63467],[35.03899,-106.46164]],{color:"red",weight:10,opacity:.5}).addTo(map);
+
+//var poly = L.polygon([[ [35.10418,-106.62987],[35.08845,-106.51794],[35.0581,-106.51245],[35.05586,-106.63055],[35.10418,-106.62987] ]],{stroke:true, color:"red",fill:true,fillColor:"blue",fillOpacity:1}).addTo(map);/*
+
+
+
+
+
+/*
+function donedragging(e){
+	console.log(e);
+	console.log(e.distance);
+	console.log(e.target._latlng.lat);
+	console.log(e.target._latlng.lng);
+}
+
+m2.on("dragend",donedragging);
+
+*/
+
+
+
+
+/*
+function dosomething(e){
+console.log(e);
+
+}
+
+
+map.on("click",dosomething);
+
+map.on("dblclick",function(e){
+
+	alert("Double Clicked at: "+e.latlng)
+});
+
+*/
+
+
+</script>
+</body></html>
