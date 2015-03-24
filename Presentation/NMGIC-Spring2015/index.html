@@ -13,20 +13,108 @@
 </head><body>
 
 
+<!-- Title -->
+
+<div>JavaScript for Geospatial Development<br><a href="http://nmgic.com">NMGIC Spring 2015</a><br>Paul Crickard</div>
 
 
-<div><em>JavaScript for Geospatial Development</em><br><a href="http://nmgic.com">NMGIC Spring 2015</a><br>Paul Crickard</div>
+<!-- Outline -->
 
-<div><h3>Topics</h3><br><a href="http://leafletjs.com/">Leaflet.js</a><br><br><a href="http://resources.arcgis.com/en/help/rest/apiref/">ESRI Rest API</a><br><br><a href="https://github.com/Esri/esri-leaflet">ESRI Leaflet<br><br><a href="http://turfjs.org/">Turf.js</a></div>
-
-<div><img src="gifs/Mouseonhead.gif"/>Programming is hard</div>
-<div><img src="gifs/Think.gif"/>You have to think</div>
-<div><img src="gifs/fastTyping.gif"/>In the Zone!</div>
-<div><img src="gifs/Excellent.gif"/></div>
+<div><h3>Topics</h3><br><a href="http://leafletjs.com/">Leaflet.js</a><br><br><a href="http://resources.arcgis.com/en/help/rest/apiref/">ESRI Rest API</a><br><br><a href="http://turfjs.org/">Turf.js</a><br><br><a href="https://github.com/Esri/esri-leaflet">ESRI Leaflet</a></div>
 
 
+<!-- Leaflet -->
+
+<div>33kb of JavaScript mapping goodness<br></div>
+
+<div>Map in <em>2 lines</em> of code</div>
+
+<div><img src="img/map.jpg"/><pre>var map = L.map('map', {center: [35.10418, -106.62987],zoom:18});<br><br>var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);</pre></div>
+
+<div><h3>Layers</h3><em><ul><li>Points (Marker)</li><li>Lines</li><li>Polygons</li></ul></em></div>
+
+<div><pre>L.marker([35,-106]);</pre></div>
+
+<div><pre>L.polyline([ [35.05698,-106.72806],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.06035,-106.63467],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.03899,-106.46164]]);</pre></div>
+
+<div><pre>L.polygon([[ [35.10418,-106.62987],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.08845,-106.51794],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.0581,-106.51245],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.05586,-106.63055],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.10418,-106.62987] ]]);</pre></div>
+
+<div><h3>Other Layers<h3><ul><em><li>GeoJSON</li><li>Multi-Line/Polygon</li><li>Feature Group</li></ul></em></div>
+
+<div><pre>L.geoJson(TheGeoJSON);</pre></div>
+
+<div><pre>L.featureGroup([marker, polyline, polygon]);</pre></div>
+
+<div><h3>Events</h3><em><ul><li>Clicks</li><li>Mouse</li><li>View changes</li></ul></em></div>
+
+<div><pre>object.on(<em>"event"</em>,function(){<br>&nbsp&nbsp&nbspDo something...});</pre></div>
+
+<div><pre>map.on(<em>"click"</em>,function(e){<br>&nbsp&nbsp&nbsp alert(e.latlng);});</pre></div>
+
+<div></div>
 
 
+
+
+<!-- ESRI REST API -->
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+
+
+<!-- Turf -->
+
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+
+<!-- ESRI Leaflet -->
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+
+
+
+<!--
+
+
+
+
+<div><img src="img/Mouseonhead.gif"/>Programming is hard</div>
+<div><img src="img/Think.gif"/>You have to think</div>
+<div><img src="img/fastTyping.gif"/>In the Zone!</div>
+<div><img src="img/Excellent.gif"/></div>
+
+
+
+//-->
 
 
 
