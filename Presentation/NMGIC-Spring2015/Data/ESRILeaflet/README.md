@@ -13,7 +13,6 @@ This example loads an ESRI Feature Service. On a map click, the point is convert
 ```js
 map.on("click",function(e){
 	var temp=L.marker(e.latlng);
-	var tempjson=temp.toGeoJSON();
 	pt.addFeature(temp.toGeoJSON(), function(error, response) {
  	     console.log(error, response);
  	   });

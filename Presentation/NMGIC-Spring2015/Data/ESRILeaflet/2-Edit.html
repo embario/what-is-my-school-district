@@ -39,8 +39,7 @@ var pt = L.esri.featureLayer('http://coagisweb.cabq.gov/arcgis/rest/services/pub
 map.on("click",function(e){
 
 	var temp=L.marker(e.latlng);
-	var tempjson=temp.toGeoJSON();
-	
+		
 	pt.addFeature(temp.toGeoJSON(), function(error, response) {
  	     console.log(error, response);
  	   });
