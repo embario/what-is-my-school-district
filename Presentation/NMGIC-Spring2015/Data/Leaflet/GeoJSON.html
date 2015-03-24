@@ -24,23 +24,35 @@ html, body,  #map {
 
 
 
-var map = L.map('map', {center: [35.10418, -106.62987],	zoom:8});
+//var map = L.map('map', {center: [35.10418, -106.62987],	zoom:8});
 
-var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-
-t.addTo(map);
-
-//var m = L.marker([35,-106]).addTo(map);
-
-//var m2=L.marker([35.10418, -106.62987],{draggable:true}).addTo(map).bindPopup("<h3>NMGIC</h3>").openPopup();
+//var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 
 
-//var pl = L.polyline([ [35.05698,-106.72806],[35.06035,-106.63467],[35.03899,-106.46164]],{color:"red",weight:10,opacity:.5}).addTo(map);
+//L.geoJson(Historic).addTo(map);
 
-//var poly = L.polygon([[ [35.10418,-106.62987],[35.08845,-106.51794],[35.0581,-106.51245],[35.05586,-106.63055],[35.10418,-106.62987] ]],{stroke:true, color:"red",fill:true,fillColor:"blue",fillOpacity:1}).addTo(map);/*
+/*
+function each(feature, layer) {    
+        layer.bindPopup(feature.properties.Name);
+    }
 
+function id(feature, layer) {    
+        return feature.id<50;
+    }
 
+function colorMe(feature, layer) {    
+        return feature.id > 50  ? {color:"#BD0026", opacity:1} :
+           feature.id > 40  ? {color:"#E31A1C", opacity:1} :
+           feature.id > 30  ? {color:"#FC4E2A", opacity:1} :
+           feature.id > 20   ? {color:"#FD8D3C", opacity:1} :
+           feature.id > 10   ? {color:"#FEB24C", opacity:1} :
+                                {color:"#FFEDA0", opacity:1};
+    }
+   
 
+L.geoJson(Historic,{onEachFeature: each, filter:id,style:colorMe}).addTo(map);
+
+*/
 
 
 /*
