@@ -24,9 +24,9 @@ html, body,  #map {
 
 
 
-//var map = L.map('map', {center: [35.10418, -106.62987],	zoom:8});
+var map = L.map('map', {center: [35.10418, -106.62987],	zoom:8});
 
-//var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
 
 //t.addTo(map);
 
@@ -48,22 +48,22 @@ function each(feature, layer) {
     }
 
 function id(feature, layer) {    
-        return feature.id<10;
+        return feature.id<50;
     }
 
 function colorMe(feature, layer) {    
-        return feature.id > 8  ? {color:"#BD0026", opacity:1} :
-           feature.id > 6  ? {color:"#E31A1C", opacity:1} :
-           feature.id > 4  ? {color:"#FC4E2A", opacity:1} :
-           feature.id > 2   ? {color:"#FD8D3C", opacity:1} :
-           feature.id > 0   ? {color:"#FEB24C", opacity:1} :
+        return feature.id > 50  ? {color:"#BD0026", opacity:1} :
+           feature.id > 40  ? {color:"#E31A1C", opacity:1} :
+           feature.id > 30  ? {color:"#FC4E2A", opacity:1} :
+           feature.id > 20   ? {color:"#FD8D3C", opacity:1} :
+           feature.id > 10   ? {color:"#FEB24C", opacity:1} :
                                 {color:"#FFEDA0", opacity:1};
     }
    
 
 L.geoJson(Historic,{onEachFeature: each, filter:id,style:colorMe}).addTo(map);
-*/
 
+*/
 
 
 /*
@@ -80,7 +80,7 @@ m2.on("dragend",donedragging);
 
 
 
-<<<<<<< HEAD
+
 /*
 function dosomething(e){
 console.log(e);
@@ -97,7 +97,6 @@ map.on("dblclick",function(e){
 
 */
 
-=======
->>>>>>> origin/master
+
 </script>
 </body></html>
