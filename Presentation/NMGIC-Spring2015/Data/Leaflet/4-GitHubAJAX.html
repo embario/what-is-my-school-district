@@ -27,7 +27,8 @@ http.onreadystatechange = function() {//Call a function when the state changes.
 		console.log(http.responseText);
 		result= JSON.parse(http.responseText);
 				
-		
+		L.geoJson(result).addTo(map);
+
 		
 
 }}
