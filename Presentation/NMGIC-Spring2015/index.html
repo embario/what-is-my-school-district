@@ -26,65 +26,42 @@
 <!-- Leaflet -->
 
 <div>33kb of JavaScript mapping goodness<br></div>
-
 <div>Map in <em>2 lines</em> of code</div>
-
-<div><img src="img/map.JPG"/><pre>var map = L.map('map', {center: [35.10418, -106.62987],zoom:18});<br><br>var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
-</pre></div>
-
+<div><img src="img/map.JPG"/><pre>var map = L.map('map', {center: [35.10418, -106.62987],zoom:18});<br><br>var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);</pre></div>
 <div><h3>Layers</h3><em><ul><li>Points (Marker)</li><li>Lines</li><li>Polygons</li></ul></em></div>
-
 <div><pre>L.marker([35,-106]);</pre></div>
-
 <div><pre>L.polyline([ [35.05698,-106.72806],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.06035,-106.63467],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.03899,-106.46164]]);</pre></div>
-
 <div><pre>L.polygon([[ [35.10418,-106.62987],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.08845,-106.51794],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.0581,-106.51245],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.05586,-106.63055],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.10418,-106.62987] ]]);</pre></div>
-
 <div><em>GeoJSON</em></div>
-
-<div>GeoJSON as a Variable</div>
-
-<div>AJAX GET</div>
-
 <div><pre>L.geoJson(TheGeoJSON);</pre></div>
-
 <div>Or, just use GitHub</div>
-
 <div><img src="img/githubgeojson.JPG"/><em>GitHub maps your GeoJSON</em></div>
-
 <div><img src="img/githubiframe.JPG"/><em>Embed it</em></div>
-
 <div><a href="http://geojson.io/">GeoJSON.io</a></div>
-
 <div><em>Multi-Line<br>Multi-Polygon<br>Feature Group</em></div>
-
 <div><pre>L.featureGroup([marker, polyline, polygon]);</pre></div>
-
 <div><h3>Events</h3><em><ul><li>Clicks</li><li>Mouse</li><li>View changes</li></ul></em></div>
-
 <div><pre>object.on(<em>"event"</em>,function(){<br>&nbsp&nbsp&nbspDo something...});</pre></div>
-
 <div><pre>map.on(<em>"click"</em>,function(e){<br>&nbsp&nbsp&nbsp alert(e.latlng);});</pre></div>
+<div>Mobile</div>
+<div><pre>body {padding: 0; margin: 0;}<br>html, body, #map {height: 100%;}</pre></div>
+<div><pre>meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"</pre></div>
+<div><pre>map.locate({option:value})</pre><br>watch, setView, maxZoom, <br>timeout, maximumAge,<br> enableHighAccuracy</div>
+<div><pre>map.on('locationfound', foundMe);<br>map.on('locationerror', ooops);</pre></div>
 
-
-
-
-<div></div>
-<div></div>
-<div></div>
 
 
 
 <!-- ESRI REST API -->
-<div>SHOW INterface</div>
-<div>QUERY</div>
-<div>Params</div>
-<div>AJAX</div>
-<div>AJAXmapit</div>
-<div>CRUD</div>
-<div></div>
-<div></div>
-<div></div>
+<div><h3>REST API</h3><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/public">/arcgis/rest/services</a></div>
+<div><h3>Query</h3><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/public/PublicArt/MapServer/0/query">Public Art</a></div>
+<div><h3>Parameters</h3><br><ul><li>1=1</li><li>ObjectID</li><li>In SR</li><li>Out SR</li><li>Out Fields=*</li></ul></div>
+<div><h1>AJAX</h1><br><pre>http=new XMLHttpRequest();<br>http.open("POST", url, true);<br>http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");<br>http.onreadystatechange = function(){<br>if(http.readyState == 4 && http.status == 200) {<br>result= JSON.parse(http.responseText);}}<br>http.send(params);</pre></div>
+<div><h1>AJAX to Map</h1><br><pre>for(var x=0;x<result.features.length;x++){<br>L.marker([result.features[x].geometry.y,result.features[x].geometry.x]).addTo(map);}</pre></div>
+<div>C<em>reate</em><br>R<em>ead</em><br>U<em>pdate</em><br>D<em>elete</em></div>
+<div><img src="img/CRUD.jpg" /></div>
+<div><h1>Use CRUD</h1><br><pre>var myFeature=new CRUD("http://Server/arcgis/rest/services/a/FeatureServer/0");<br>myFeature.delete(55);<br>myFeature.add(pointToAdd);</pre></div>
+<div><h3>Other Services</h3><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/locators/CABQ_Composite/GeocodeServer/findAddressCandidates">Geocode</a><br><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/Imagery/Aerials2014/ImageServer/exportImage?bbox=1354494.9999728415,1276134.000009775,1673234.9999728415,1688080.000009775">GetImage</a><br><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/Utilities/Geometry/GeometryServer">Geometry(buffer)</a></div>
 
 
 
@@ -94,29 +71,30 @@
 <!-- Turf -->
 
 
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
+<div><h1>Turf</h1><br><em>GeoJSON<br>WGS 84</em></div>
+<div><h1>Point</h1><br><pre>var point = turf.point([-106.62987,35.10418 ], <br>{ name: 'point', Attrib:"Some Attribute",num:3,color:"#ff0000"});</pre></div>
+<div><h1>Linestring</h1><br><pre>var linestring = turf.linestring([  [-106.72806,35.05698],[-106.63467,35.06035],[-106.46164,35.03899]  ],<br>{ name: 'polygon', Attrib:"Some Attribute",num:3,color:"#0000ff"});</pre></div>
+<div><h1>Polygon</h1><br><pre>var polygon = turf.polygon([[[-106.62987,35.10418 ],[-106.51794,35.08845],<br>[-106.51245,35.0581],[-106.63055,35.05586],[-106.62987,35.10418 ]   ]], <br>{ name: 'polygon', Attrib:"Some Attribute",num:3,color:"#ff0000"});</pre></div>
+<div><h1>In Leaflet</h1><br><pre>L.geoJson(polygon).addTo(map);</pre></div>
+<div>Spatial Analysis<br><a href="http://turfjs.org/static/docs/">Too long to list</a></div>
+<div><h1>Leaflet to Turf</h1><br><pre>a=L.marker([35,-106]);<br><em>b=a.toGeoJSON();</em><br>buffered = turf.buffer(<em>b</em>,.05,"miles");</pre></div>
 
 
 
 <!-- ESRI Leaflet -->
 
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
+<div><em>ESRI Leaflet</em><br>Simplifies the REST API</div>
+<div><em>AJAX</em><br>9 lines</div>
+<div>ESRI<br><pre>var find = L.esri.Tasks.find('http://server/.../govunits/MapServer');<br>find.layers('18').text('Colorado');<br>find.run(function(error, featureCollection, response){<br>Do Something with featureCollection.features[x]});</pre></div>
+<div>CRUD built in<br><pre>var pt = L.esri.featureLayer('http://server/.../.../FeatureServer/0').addTo(map);<br>pt.addFeature(t.toGeoJSON(), function(error, response) {<br>console.log(error, response);});</pre></div>
+<div>Basemaps<br><pre>L.esri.basemapLayer("Gray").addTo(map);</pre></div>
+<div>Streets<br>Topographic<br>NationalGeographic<br>Oceans<br>DarkGray<br>Imagery<br>ShadedRelief</div>
+<div>Image Service</div>
+<div>Dynamic Map Layer</div>
+<div>Feature Layer</div>
+<div><img src="img/Heat.jpg" /><em>Heatmaps</em></div>
+<div><img src="img/Cluster.jpg" />Cluster</div>
+
 
 
 
