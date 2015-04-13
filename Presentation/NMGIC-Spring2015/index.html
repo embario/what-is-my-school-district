@@ -31,7 +31,7 @@
 <div><h3>Layers</h3><em><ul><li>Points (Marker)</li><li>Lines</li><li>Polygons</li></ul></em></div>
 <div><pre>L.marker([35,-106]);</pre></div>
 <div><pre>L.polyline([ [35.05698,-106.72806],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.06035,-106.63467],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.03899,-106.46164]]);</pre></div>
-<div><pre>L.polygon([[ [35.10418,-106.62987],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.08845,-106.51794],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.0581,-106.51245],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.05586,-106.63055],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.10418,-106.62987] ]]);</pre></div>
+<div><pre>L.polygon([[ <em>[35.10418,-106.62987]</em>,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.08845,-106.51794],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.0581,-106.51245],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[35.05586,-106.63055],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<em>[35.10418,-106.62987]</em> ]]);</pre></div>
 <div><em>GeoJSON</em></div>
 <div><pre>L.geoJson(TheGeoJSON);</pre></div>
 <div>Or, just use GitHub</div>
@@ -43,10 +43,11 @@
 <div><h3>Events</h3><em><ul><li>Clicks</li><li>Mouse</li><li>View changes</li></ul></em></div>
 <div><pre>object.on(<em>"event"</em>,function(){<br>&nbsp&nbsp&nbspDo something...});</pre></div>
 <div><pre>map.on(<em>"click"</em>,function(e){<br>&nbsp&nbsp&nbsp alert(e.latlng);});</pre></div>
+<div><em>click</em>, dblclick, <em>mousedown</em>, mouseup, <em>mouseover</em>, mouseout, <em>mousemove</em>, contextmenu, <em>focus</em>, blur, <em>preclick</em>, load, <em>unload</em>, viewreset, <em>movestart</em>, move, <em>moveend</em>, dragstart, <em>drag</em>, dragend, <em>zoomstart</em>, zoomend, <em>zoomlevelschange</em>, resize, <em>autopanstart</em>, layeradd, <em>layerremove</em>, baselayerchange, <em>overlayadd</em>, overlayremove, <em>locationfound</em>, locationerror, <em>popupopen</em>, popupclose</div>
 <div>Mobile</div>
 <div><pre>body {padding: 0; margin: 0;}<br>html, body, #map {height: 100%;}</pre></div>
 <div><pre>meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"</pre></div>
-<div><pre>map.locate({option:value})</pre><br>watch, setView, maxZoom, <br>timeout, maximumAge,<br> enableHighAccuracy</div>
+<div><pre>map.locate({option:value})</pre><br><em>watch, setView, maxZoom, <br>timeout, maximumAge,<br> enableHighAccuracy</em></div>
 <div><pre>map.on('locationfound', foundMe);<br>map.on('locationerror', ooops);</pre></div>
 
 
@@ -55,7 +56,7 @@
 <!-- ESRI REST API -->
 <div><h3>REST API</h3><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/public">/arcgis/rest/services</a></div>
 <div><h3>Query</h3><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/public/PublicArt/MapServer/0/query">Public Art</a></div>
-<div><h3>Parameters</h3><br><ul><li>1=1</li><li>ObjectID</li><li>In SR</li><li>Out SR</li><li>Out Fields=*</li></ul></div>
+<div><h3>Parameters</h3><br><em><ul><li>1=1</li><li>ObjectID</li><li>In SR</li><li>Out SR</li><li>Out Fields=*</li></ul></em></div>
 <div><h1>AJAX</h1><br><pre>http=new XMLHttpRequest();<br>http.open("POST", url, true);<br>http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");<br>http.onreadystatechange = function(){<br>if(http.readyState == 4 && http.status == 200) {<br>result= JSON.parse(http.responseText);}}<br>http.send(params);</pre></div>
 <div><h1>AJAX to Map</h1><br><pre>for(var x=0;x<result.features.length;x++){<br>L.marker([result.features[x].geometry.y,result.features[x].geometry.x]).addTo(map);}</pre></div>
 <div>C<em>reate</em><br>R<em>ead</em><br>U<em>pdate</em><br>D<em>elete</em></div>
@@ -76,7 +77,8 @@
 <div><h1>Linestring</h1><br><pre>var linestring = turf.linestring([  [-106.72806,35.05698],[-106.63467,35.06035],[-106.46164,35.03899]  ],<br>{ name: 'polygon', Attrib:"Some Attribute",num:3,color:"#0000ff"});</pre></div>
 <div><h1>Polygon</h1><br><pre>var polygon = turf.polygon([[[-106.62987,35.10418 ],[-106.51794,35.08845],<br>[-106.51245,35.0581],[-106.63055,35.05586],[-106.62987,35.10418 ]   ]], <br>{ name: 'polygon', Attrib:"Some Attribute",num:3,color:"#ff0000"});</pre></div>
 <div><h1>In Leaflet</h1><br><pre>L.geoJson(polygon).addTo(map);</pre></div>
-<div>Spatial Analysis<br><a href="http://turfjs.org/static/docs/">Too long to list</a></div>
+<div>Spatial Analysis</div>
+<div><em>aggregate</em> average<em> count</em> deviation<em> max</em> median<em> min</em> sum<em> variance</em> along<em> area</em> bbox-polygon<em> bearing</em> center<em> centroid</em> destination<em> distance</em> envelope<em> extent</em> line-distance<em> midpoint</em> point-on-surface<em> size</em> square<em> bezier</em> buffer<em> concave</em> convex<em> erase</em> intersect<em> merge</em> simplify<em> union</em> combine<em> explode</em> flip<em> kinks</em> line-slice<em> point-on-line</em> filter<em> random</em> remove<em> sample</em> hex-grid<em> isolines</em> planepoint<em> point-grid</em> square-grid<em> tin</em> triangle-grid<em> inside</em> tag<em> within</em> jenks<em> nearest</em> quantile<em> reclass</em></div>
 <div><h1>Leaflet to Turf</h1><br><pre>a=L.marker([35,-106]);<br><em>b=a.toGeoJSON();</em><br>buffered = turf.buffer(<em>b</em>,.05,"miles");</pre></div>
 
 
@@ -88,7 +90,7 @@
 <div>ESRI<br><pre>var find = L.esri.Tasks.find('http://server/.../govunits/MapServer');<br>find.layers('18').text('Colorado');<br>find.run(function(error, featureCollection, response){<br>Do Something with featureCollection.features[x]});</pre></div>
 <div>CRUD built in<br><pre>var pt = L.esri.featureLayer('http://server/.../.../FeatureServer/0').addTo(map);<br>pt.addFeature(t.toGeoJSON(), function(error, response) {<br>console.log(error, response);});</pre></div>
 <div>Basemaps<br><pre>L.esri.basemapLayer("Gray").addTo(map);</pre></div>
-<div>Streets<br>Topographic<br>NationalGeographic<br>Oceans<br>DarkGray<br>Imagery<br>ShadedRelief</div>
+<div>Streets<br><em>Topographic</em><br>NationalGeographic<br><em>Oceans</em><br>DarkGray<br><em>Imagery</em><br>ShadedRelief</div>
 <div>Image Service</div>
 <div>Dynamic Map Layer</div>
 <div>Feature Layer</div>
@@ -100,19 +102,12 @@
 
 
 
-<!--
+
+<div>Questions?<br><em>@pcrickard<br>paulcrickard@gmail.com</em></div>
 
 
+<div><img src="img/Mouseonhead.gif"/></div>
 
-
-<div><img src="img/Mouseonhead.gif"/>Programming is hard</div>
-<div><img src="img/Think.gif"/>You have to think</div>
-<div><img src="img/fastTyping.gif"/>In the Zone!</div>
-<div><img src="img/Excellent.gif"/></div>
-
-
-
-//-->
 
 
 
