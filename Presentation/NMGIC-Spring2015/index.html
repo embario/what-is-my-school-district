@@ -59,7 +59,7 @@
 <div><h1>AJAX</h1><br><pre>http=new XMLHttpRequest();<br>http.open("POST", url, true);<br>http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");<br>http.onreadystatechange = function(){<br>if(http.readyState == 4 && http.status == 200) {<br>result= JSON.parse(http.responseText);}}<br>http.send(params);</pre></div>
 <div><h1>AJAX to Map</h1><br><pre>for(var x=0;x<result.features.length;x++){<br>L.marker([result.features[x].geometry.y,result.features[x].geometry.x]).addTo(map);}</pre></div>
 <div>C<em>reate</em><br>R<em>ead</em><br>U<em>pdate</em><br>D<em>elete</em></div>
-<div><img src="img/CRUD.jpg" /></div>
+<div><img src="img/CRUD.JPG" /></div>
 <div><h1>Use CRUD</h1><br><pre>var myFeature=new CRUD("http://Server/arcgis/rest/services/a/FeatureServer/0");<br>myFeature.delete(55);<br>myFeature.add(pointToAdd);</pre></div>
 <div><h3>Other Services</h3><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/locators/CABQ_Composite/GeocodeServer/findAddressCandidates">Geocode</a><br><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/Imagery/Aerials2014/ImageServer/exportImage?bbox=1354494.9999728415,1276134.000009775,1673234.9999728415,1688080.000009775">GetImage</a><br><br><a href="http://coagisweb.cabq.gov/arcgis/rest/services/Utilities/Geometry/GeometryServer">Geometry(buffer)</a></div>
 
@@ -92,8 +92,8 @@
 <div>Image Service</div>
 <div>Dynamic Map Layer</div>
 <div>Feature Layer</div>
-<div><img src="img/Heat.jpg" /><em>Heatmaps</em></div>
-<div><img src="img/Cluster.jpg" />Cluster</div>
+<div><img src="img/Heat.JPG" /><em>Heatmaps</em></div>
+<div><img src="img/Cluster.JPG" />Cluster</div>
 
 
 
