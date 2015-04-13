@@ -5,12 +5,7 @@ function CRUD(url){  //url should look like: http://dmdview/ArcGIS/rest/services
 	
 }//end function CRUD
 
-
-
-
 CRUD.prototype={
-
-	
 
 	add: function(addFeature){  ////needs to look like [{"geometry":{"x":-106,"y":35}, "attributes":{"name":"paul","number":123}}]
 		var addparams = "features="+addFeature+"&f=json"; 
@@ -26,7 +21,7 @@ CRUD.prototype={
   		}	
 		http.open("POST", addurl, true);
 		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		http.onreadystatechange = function() {//Call a function when the state changes.
+		http.onreadystatechange = function() {
 			if(http.readyState == 4 && http.status == 200) {
 				alert(http.responseText);
 			}
@@ -48,7 +43,7 @@ CRUD.prototype={
   		}	
 		http.open("POST", updateurl, true);
 		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		http.onreadystatechange = function() {//Call a function when the state changes.
+		http.onreadystatechange = function() {
 			if(http.readyState == 4 && http.status == 200) {
 				console.log(http.responseText);
 			}
@@ -69,7 +64,7 @@ CRUD.prototype={
   		}	
 		http.open("POST", deleteurl, true);
 		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		http.onreadystatechange = function() {//Call a function when the state changes.
+		http.onreadystatechange = function() {
 			if(http.readyState == 4 && http.status == 200) {
 				console.log(http.responseText);
 			}
