@@ -40,9 +40,10 @@ http.onreadystatechange = function() {//Call a function when the state changes.
 		var result= JSON.parse(http.responseText);
 		for(x=0;x<result.features.length;x++){
 			console.log(result.features[x].attributes.CO_TPY);
-			features.features.push(turf.point([result.features[x].geometry.x,result.features[x].geometry.y],{"z":result.features[x].attributes.CO_TPY}));
+			if(result.features[x].geometry===undefined){}
+			else{features.features.push(turf.point([result.features[x].geometry.x,result.features[x].geometry.y],{"z":result.features[x].attributes.CO_TPY}));
 			//L.marker([result.features[x].geometry.y,result.features[x].geometry.x]).bindPopup("<h3>"+result.features[x].attributes.FAC_NAME+"</h3>").addTo(map);
-		}
+		}}
 	
 	//L.geoJson(features).addTo(map);
 		
