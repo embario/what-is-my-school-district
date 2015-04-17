@@ -36,7 +36,7 @@ L.esri.basemapLayer("Gray").addTo(map);
 var image = "http://coagisweb.cabq.gov/arcgis/rest/services/Imagery/Aerials2014/ImageServer";
 
 
-/*
+
 var base = L.esri.imageMapLayer(image, {
   opacity : 1
 }).addTo(map);
@@ -55,12 +55,12 @@ k = L.esri.dynamicMapLayer(film, {
 
 k.bindPopup(function(err, featureCollection){
     
-    return "<h3>"+featureCollection.features[0].properties.Title+"</h3><p>This is details";
+    return "<h3>"+featureCollection.features[0].properties.DAY_+"</h3><p>This is details<ul><li>Lists</li><li>Lsit items</li></ul><a href='http://google.com'>Links</a>";
 });
 
 
 k.bringToFront();
-*/
+
 
 
 

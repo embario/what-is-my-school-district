@@ -7,7 +7,7 @@
 
 <style>
 
-html, body,  #map {
+html, body,  #map,#p {
         width : 100%;
         height : 100%;
      		   }
@@ -30,7 +30,20 @@ var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
 
 t.addTo(map);
 
-//var m = L.marker([35,-106]).addTo(map);
+//var pt = L.marker([35.05698,-106.72806]).addTo(map);
+
+/*
+
+var divNode = document.createElement('DIV');
+divNode.innerHTML = '<div id="p"><iframe src="http://www.themaninblue.com/experiment/BunnyHunt/" height="400" width="900"></iframe></div>';
+
+var m = L.marker([35,-106]).addTo(map);
+m.bindPopup(divNode,{maxWidth:900});
+
+*/
+
+
+
 
 //var m2=L.marker([35.10418, -106.62987],{draggable:true}).addTo(map).bindPopup("<h3>NMGIC</h3>").openPopup();
 
