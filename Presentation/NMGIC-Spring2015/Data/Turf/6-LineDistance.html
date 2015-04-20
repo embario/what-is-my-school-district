@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>DMD Permit Application</title>
+
+<!--  -->
+
+<!--
+-->
+
+
+<!-- LOAD LEAFLET.JS MAPPING LIBRARY	-->
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+
+<!-- LOAD DRAWING PLUGIN -->	
+<link rel="stylesheet" href="Draw/dist/leaflet.draw.css" />
+<script src="Draw/src/Leaflet.draw.js"></script>
+<script src="Draw/src/edit/handler/Edit.Poly.js"></script>
+<script src="Draw/src/edit/handler/Edit.SimpleShape.js"></script>
+<script src="Draw/src/edit/handler/Edit.Circle.js"></script>
+<script src="Draw/src/edit/handler/Edit.Rectangle.js"></script>
+<script src="Draw/src/draw/handler/Draw.Feature.js"></script>
+<script src="Draw/src/draw/handler/Draw.Polyline.js"></script>
+<script src="Draw/src/draw/handler/Draw.Polygon.js"></script>
+<script src="Draw/src/draw/handler/Draw.SimpleShape.js"></script>
+<script src="Draw/src/draw/handler/Draw.Rectangle.js"></script>
+<script src="Draw/src/draw/handler/Draw.Circle.js"></script>
+<script src="Draw/src/draw/handler/Draw.Marker.js"></script>
+<script src="Draw/src/ext/LatLngUtil.js"></script>
+<script src="Draw/src/ext/GeometryUtil.js"></script>
+<script src="Draw/src/ext/LineUtil.Intersect.js"></script>
+<script src="Draw/src/ext/Polyline.Intersect.js"></script>
+<script src="Draw/src/ext/Polygon.Intersect.js"></script>
+<script src="Draw/src/Control.Draw.js"></script>
+<script src="Draw/src/Tooltip.js"></script>
+<script src="Draw/src/Toolbar.js"></script>
+<script src="Draw/src/draw/DrawToolbar.js"></script>
+<script src="Draw/src/edit/EditToolbar.js"></script>
+<script src="Draw/src/edit/handler/EditToolbar.Edit.js"></script>
+<script src="Draw/src/edit/handler/EditToolbar.Delete.js"></script>
+
+
+
+
+
+
+
+
+<script src="http://api.tiles.mapbox.com/mapbox.js/plugins/turf/v1.4.0/turf.min.js"></script>
+	
+	
+<style>
+
+html, body,#map {
+        width : 100%;
+        height : 100%;
+     		   }
+
+
+
+</style>
+
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+
+
+
+var map = L.map('map').setView([35.10418,-106.62987], 12); 
+var tiles = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+
+
+
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+		var drawControl = new L.Control.Draw({
+			draw: {
+				marker: false,
+				position: 'topleft',
+				polygon: false,
+				polyline: {
+					metric: false,
+					shapeOptions:{color:'green',opacity:1}
+					  },
+				circle:false,
+				rectangle: false
+			},
+			edit: {
+				featureGroup: drawnItems,
+				edit: false
+			}
+		});
+		map.addControl(drawControl);
+
+		map.on('draw:created', function (e) {
+			var type = e.layerType;
+				layer = e.layer;
+
+			
+			if (type === 'polyline') {
+				drawLine=layer.getLatLngs();
+				var b=layer.toGeoJSON();
+				alert(turf.lineDistance(b, 'miles')+" Miles");
+				
+				
+				
+			}
+
+			drawnItems.addLayer(layer);
+			
+		});
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
+

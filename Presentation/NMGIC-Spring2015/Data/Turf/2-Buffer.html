@@ -37,7 +37,7 @@ b=a.toGeoJSON();
 
 
 buffered = turf.buffer(b,.05,"miles");
-
+L.geoJson(buffered).addTo(map);
 g='{"rings":'+JSON.stringify(buffered.features[0].geometry.coordinates)+'}';
 
 
