@@ -30,7 +30,8 @@ var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
 
 t.addTo(map);
 
-//var pt = L.marker([35.05698,-106.72806]).addTo(map);
+var pt = L.marker([35.05698,-106.72806]).addTo(map);
+pt.bindPopup("Hover over me");
 
 /*
 
@@ -78,6 +79,7 @@ console.log(e);
 }
 
 
+
 map.on("click",dosomething);
 
 map.on("dblclick",function(e){
@@ -87,6 +89,9 @@ map.on("dblclick",function(e){
 
 */
 
+
+pt.on("mouseover", function(){pt.openPopup();});
+pt.on("mouseout", function(){pt.closePopup();});
 
 </script>
 </body></html>

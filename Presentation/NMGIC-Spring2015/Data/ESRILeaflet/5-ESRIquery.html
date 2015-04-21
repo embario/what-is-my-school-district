@@ -1,0 +1,85 @@
+<html>
+<head>
+  
+  <title>Leaflet Essentials</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+ 
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
+
+  
+</head>
+<body>
+
+<style>
+
+html, body, #map {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
+
+
+  #query {
+    position: absolute;
+    top: 10px;
+    right: 500px;
+    z-index: 10;
+    background: white;
+    padding: 1em;
+  }
+
+  #query select {
+    font-size: 16px;
+  }
+</style>
+
+<div id="map"></div>
+<div id="query" class="leaflet-bar">
+<label>
+ Status
+  <select id="caseStatus">
+    <option value=''>Clear Screen</option>
+    <option value='Isaac Benton'>Isaac Benton</option>
+    <option value='Diane G. Gibson'>Diane G. Gibson</option>
+    
+  </select>
+</label>
+</div>
+
+<script>
+  var map = L.map('map').setView([35, -106], 8);
+
+ 
+  L.esri.basemapLayer('Streets').addTo(map);
+  var tc = L.esri.featureLayer('http://coagisweb.cabq.gov/arcgis/rest/services/public/TrafficCalming/FeatureServer/0', {
+   pointToLayer: function (geojson, latlng, feature) {
+      return L.marker(latlng);
+    },
+  }).addTo(map);
+
+var popupTemplate = "<h3>Details:</h3>Councilor: {councilor}<br>Address: {address}";
+
+    tc.bindPopup(function(feature){
+       return L.Util.template(popupTemplate, feature.properties)
+      });
+
+
+
+  
+
+  caseStatus.addEventListener('change', function(){
+    tc.setWhere('councilor="'+caseStatus.value+'"');
+  });
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
