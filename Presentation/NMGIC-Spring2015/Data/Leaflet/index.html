@@ -27,13 +27,16 @@ html, body,  #map,#p {
 var map = L.map('map', {center: [35.10418, -106.62987],	zoom:8});
 
 var t = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-
 t.addTo(map);
+
+/*
+
+
 
 var pt = L.marker([35.05698,-106.72806]).addTo(map);
 pt.bindPopup("Hover over me");
 
-/*
+
 
 var divNode = document.createElement('DIV');
 divNode.innerHTML = '<div id="p"><iframe src="http://www.themaninblue.com/experiment/BunnyHunt/" height="400" width="900"></iframe></div>';
@@ -41,23 +44,23 @@ divNode.innerHTML = '<div id="p"><iframe src="http://www.themaninblue.com/experi
 var m = L.marker([35,-106]).addTo(map);
 m.bindPopup(divNode,{maxWidth:900});
 
-*/
-
-
-
-
-//var m2=L.marker([35.10418, -106.62987],{draggable:true}).addTo(map).bindPopup("<h3>NMGIC</h3>").openPopup();
-
-
-//var pl = L.polyline([ [35.05698,-106.72806],[35.06035,-106.63467],[35.03899,-106.46164]],{color:"red",weight:10,opacity:.5}).addTo(map);
-
-//var poly = L.polygon([[ [35.10418,-106.62987],[35.08845,-106.51794],[35.0581,-106.51245],[35.05586,-106.63055],[35.10418,-106.62987] ]],{stroke:true, color:"red",fill:true,fillColor:"blue",fillOpacity:1}).addTo(map);/*
 
 
 
 
 
-/*
+var m2=L.marker([35.10418, -106.62987],{draggable:true}).addTo(map).bindPopup("<h3>NMGIC</h3>").openPopup();
+
+
+var pl = L.polyline([ [35.05698,-106.72806],[35.06035,-106.63467],[35.03899,-106.46164]],{color:"red",weight:10,opacity:.5}).addTo(map);
+
+var poly = L.polygon([[ [35.10418,-106.62987],[35.08845,-106.51794],[35.0581,-106.51245],[35.05586,-106.63055],[35.10418,-106.62987] ]],{stroke:true, color:"red",fill:true,fillColor:"blue",fillOpacity:1}).addTo(map);/*
+
+
+
+
+
+
 function donedragging(e){
 	console.log(e);
 	console.log(e.distance);
@@ -67,12 +70,12 @@ function donedragging(e){
 
 m2.on("dragend",donedragging);
 
-*/
 
 
 
 
-/*
+
+
 function dosomething(e){
 console.log(e);
 
@@ -87,11 +90,11 @@ map.on("dblclick",function(e){
 	alert("Double Clicked at: "+e.latlng)
 });
 
-*/
 
 
 pt.on("mouseover", function(){pt.openPopup();});
 pt.on("mouseout", function(){pt.closePopup();});
+*/
 
 </script>
 </body></html>

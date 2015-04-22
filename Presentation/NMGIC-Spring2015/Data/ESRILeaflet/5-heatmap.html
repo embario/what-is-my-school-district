@@ -30,9 +30,7 @@
   var map = L.map('map').setView([ 35, -106], 9);
 
   L.esri.basemapLayer('Gray').addTo(map);
-  L.esri.heatmapFeatureLayer('http://coagisweb.cabq.gov/arcgis/rest/services/public/APD_Incidents/MapServer/0', {
-    radius: 8
-  }).addTo(map);
+  L.esri.heatmapFeatureLayer('http://coagisweb.cabq.gov/arcgis/rest/services/public/APD_Incidents/MapServer/0', {radius: 8, blur:15  }).addTo(map);
 
 
 
