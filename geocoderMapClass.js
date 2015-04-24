@@ -2,6 +2,9 @@
 
 
 
+String.prototype.toProperCase = function () {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
 
 	function geocoder(url) {
 		this.url=url;
@@ -52,7 +55,7 @@ b.appendChild(first);
 first.appendChild(second);
 second.appendChild(addressSearchBox);
 
-var text = "<center><b>Address:</b><input type='text' id='addr' name='to'><button id='search' >Search</button><center>"
+var text = "<center><b>Enter an address to find its school districts:</b><input type='text' id='addr' name='to'><button id='search' >Search</button><center>"
 addressSearchBox.innerHTML=text;
 
 var textbox = document.getElementById("addr");
@@ -124,8 +127,9 @@ function GeocodeAddress(){
 					if(http.readyState == 4 && http.status == 200) {
 						result= JSON.parse(http.responseText);
 						
-						highSchoolName = result.features[0].attributes.SCHOOLSERVICEAREAS;		
-						yousearchedfor.bindPopup('<h3>'+addressFromAddressSearchBox+'</h3>' + "Elementary school: " + elemSchoolName + "<br>Middle school: " + midSchoolName + "<br>High school: " + highSchoolName).openPopup();
+						highSchoolName = result.features[0].attributes.SCHOOLSERVICEAREAS;
+						console.log(highSchoolName.toProperCase());		
+						yousearchedfor.bindPopup('<h3>'+addressFromAddressSearchBox.toProperCase()+'</h3>' + "Elementary: " + elemSchoolName.toProperCase() + "<br>Middle: " + midSchoolName.toProperCase() + "<br>High: " + highSchoolName.toProperCase()).openPopup();
 
 
 					}}
