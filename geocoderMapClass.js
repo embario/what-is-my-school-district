@@ -15,75 +15,76 @@
 		second.id = "second";
 		addressSearchBox.id = "AddressSearchBox";
 		var geojson;
-		$.ajax({
+		// $.ajax({
 
-			url: "ElemSchools.geojson",
+		// 	url: "ElemSchools.geojson",
 
-			dataType: 'json',
+		// 	dataType: 'json',
 
-    //upon success extraction of data
-    success: function (data) {
+  //   //upon success extraction of data
+  //   success: function (data) {
 
-        //create a new geojson layer
-        geojson = new L.GeoJSON(data, {
+  //       //create a new geojson layer
+  //       geojson = new L.GeoJSON(data, {
 
-        	onEachFeature: function(feature, layer){
+  //       	onEachFeature: function(feature, layer){
 
-                 // console.log(feature);
-             }
+  //                // console.log(feature);
+  //            }
 
-         });
-
-
-        //add the layer to the map
-        //geojson.addTo(map);
-        
+  //        });
 
 
-        
-    }, error: function(jqXHR, textStatus, errorThrown) {
-    	console.log(errorThrown);
-    	console.log(textStatus);
-    }
-});
-
-		b.appendChild(first);
-		first.appendChild(second);
-		second.appendChild(addressSearchBox);
-
-		var text = "<center><b>Address:</b><input type='text' id='addr' name='to'><button id='search' >Search</button><center>"
-		addressSearchBox.innerHTML=text;
-
-		var textbox = document.getElementById("addr");
-		var button = document.getElementById("search");
+  //       //add the layer to the map
+  //       //geojson.addTo(map);
 
 
 
-		function GeocodeAddress(){
-			addressFromAddressSearchBox=document.getElementById("addr").value;
-			var params = "Street="+addressFromAddressSearchBox+"&f=json&outSR=4326";
-			
 
-			if (window.XMLHttpRequest)
-			{
-				http=new XMLHttpRequest();
-			}
-			else
-			{
-				http=new ActiveXObject("Msxml2.XMLHTTP");   
-			}
-			
-		
-			http.open("POST", url, true);
-			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  //   }, error: function(jqXHR, textStatus, errorThrown) {
+  //   	console.log(errorThrown);
+  //   	console.log(textStatus);
+  //   }
+
+// });
+
+b.appendChild(first);
+first.appendChild(second);
+second.appendChild(addressSearchBox);
+
+var text = "<center><b>Address:</b><input type='text' id='addr' name='to'><button id='search' >Search</button><center>"
+addressSearchBox.innerHTML=text;
+
+var textbox = document.getElementById("addr");
+var button = document.getElementById("search");
+
+
+
+function GeocodeAddress(){
+	addressFromAddressSearchBox=document.getElementById("addr").value;
+	var params = "Street="+addressFromAddressSearchBox+"&f=json&outSR=4326";
+
+
+	if (window.XMLHttpRequest)
+	{
+		http=new XMLHttpRequest();
+	}
+	else
+	{
+		http=new ActiveXObject("Msxml2.XMLHTTP");   
+	}
+
+
+	http.open("POST", url, true);
+	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			http.onreadystatechange = function() {//Call a function when the state changes.
 				if(http.readyState == 4 && http.status == 200) {
 					var thexy= JSON.parse(http.responseText);
 					var yousearchedfor = L.marker([thexy.candidates[0].location.y,thexy.candidates[0].location.x]).addTo(map)
-			
 
-				var url = "http://coagisweb.cabq.gov/arcgis/rest/services/public/Schools/MapServer/1/query";
-				var params="where=&text=&objectIds=&time=&geometry=" + yousearchedfor._latlng.lng + "%2C+" + yousearchedfor._latlng.lat + "&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelWithin&relationParam=&outFields=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&f=pjson"
+
+					var url = "http://coagisweb.cabq.gov/arcgis/rest/services/public/Schools/MapServer/1/query";
+					var params="where=&text=&objectIds=&time=&geometry=" + yousearchedfor._latlng.lng + "%2C+" + yousearchedfor._latlng.lat + "&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelWithin&relationParam=&outFields=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&f=pjson"
 				//var params = "f=json";
 
 				http=new XMLHttpRequest();
@@ -93,16 +94,54 @@
 				http.onreadystatechange = function() {
 					if(http.readyState == 4 && http.status == 200) {
 						result= JSON.parse(http.responseText);
-						console.log(result.features[0].attributes.SCHOOLSERVICEAREAS);
-						elemSchoolName = result.features[0].attributes;		
-						yousearchedfor.bindPopup('<h3>'+addressFromAddressSearchBox+'</h3>' + "Elementary school: " + result.features[0].attributes.SCHOOLSERVICEAREAS).openPopup();
+						elemSchoolName = result.features[0].attributes.SCHOOLSERVICEAREAS;		
 						
-						//map.setView([thexy.candidates[0].location.y,thexy.candidates[0].location.x],18);
+						var url = "http://coagisweb.cabq.gov/arcgis/rest/services/public/Schools/MapServer/2/query";
+						var params="where=&text=&objectIds=&time=&geometry=" + yousearchedfor._latlng.lng + "%2C+" + yousearchedfor._latlng.lat + "&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelWithin&relationParam=&outFields=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&f=pjson"
+				//var params = "f=json";
 
+				http=new XMLHttpRequest();
+				http.open("POST", url, true);
+
+				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				http.onreadystatechange = function() {
+					if(http.readyState == 4 && http.status == 200) {
+						result= JSON.parse(http.responseText);
+						
+						midSchoolName = result.features[0].attributes.SCHOOLSERVICEAREAS;		
+						
+				// Start high school
+
+						var url = "http://coagisweb.cabq.gov/arcgis/rest/services/public/Schools/MapServer/3/query";
+						var params="where=&text=&objectIds=&time=&geometry=" + yousearchedfor._latlng.lng + "%2C+" + yousearchedfor._latlng.lat + "&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelWithin&relationParam=&outFields=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&f=pjson"
+				//var params = "f=json";
+
+				http=new XMLHttpRequest();
+				http.open("POST", url, true);
+
+				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				http.onreadystatechange = function() {
+					if(http.readyState == 4 && http.status == 200) {
+						result= JSON.parse(http.responseText);
+						
+						highSchoolName = result.features[0].attributes.SCHOOLSERVICEAREAS;		
+						yousearchedfor.bindPopup('<h3>'+addressFromAddressSearchBox+'</h3>' + "Elementary school: " + elemSchoolName + "<br>Middle school: " + midSchoolName + "<br>High school: " + highSchoolName).openPopup();
 
 
 					}}
 					http.send(params);	
+
+
+					// End high school
+
+
+				}}
+				http.send(params);	
+
+
+
+			}}
+			http.send(params);	
 
 
 					//console.log(turf.inside(pt1, ))
