@@ -1,5 +1,5 @@
 
 
-what-is-my-school-district is an Esri Leaflet application that allows users to enter an address and identify its corresponding school districts in Abuquerque, NM.
+what-is-my-school-district is an esri leaflet application that allows users to enter an address and identify its corresponding school districts in albuquerque, nm.
 
-It is built on top of a geocoding service provided by the city of albuquerque and based on a geocoder app built and presented by Paul Crickard (https://github.com/PaulCrickard) at the New Mexico Geographic Information Council (NMGIC) Spring 2015 workshop
+it is built on top of a geocoding service provided by the city of albuquerque and based on a geocoder app built and presented by paul crickard (https://github.com/paulcrickard) at the new mexico geographic information council (nmgic) spring 2015 workshop.
