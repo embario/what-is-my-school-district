@@ -17,7 +17,7 @@ String.prototype.toProperCase = function () {
 		first.id = "first";
 		second.id = "second";
 		addressSearchBox.id = "AddressSearchBox";
-		var geojson;
+	
 		// $.ajax({
 
 		// 	url: "ElemSchools.geojson",
